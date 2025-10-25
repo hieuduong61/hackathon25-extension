@@ -172,15 +172,34 @@ hackathon25-extension/
 ├── manifest.json          # Extension configuration
 ├── popup.html            # Extension popup UI
 ├── popup.css             # Popup styles
-├── popup.js              # Popup logic and event handling
 ├── content.js            # Content script for page extraction
 ├── background.js         # Background service worker for API calls
+├── js/                   # Modular JavaScript architecture
+│   ├── main.js          # Application entry point
+│   ├── state/           # State management
+│   │   └── appState.js
+│   ├── services/        # API and storage services
+│   │   ├── storageService.js
+│   │   ├── eventExtractionService.js
+│   │   └── calendarService.js
+│   ├── ui/              # UI components and managers
+│   │   ├── uiManager.js
+│   │   └── components/
+│   │       ├── eventCard.js
+│   │       ├── settingsPanel.js
+│   │       └── statusMessage.js
+│   ├── handlers/        # Event handlers
+│   │   └── eventHandlers.js
+│   └── utils/           # Utility functions
+│       ├── formatters.js
+│       └── validators.js
 ├── icons/               # Extension icons
 │   ├── icon.svg         # Source SVG icon
 │   ├── icon16.png       # 16x16 icon
 │   ├── icon32.png       # 32x32 icon
 │   ├── icon48.png       # 48x48 icon
 │   └── icon128.png      # 128x128 icon
+├── ARCHITECTURE.md      # Detailed architecture documentation
 └── README.md            # This file
 ```
 
@@ -189,8 +208,21 @@ hackathon25-extension/
 - **manifest.json**: Chrome extension manifest (v3)
 - **content.js**: Extracts HTML and visible text from the current page
 - **background.js**: Handles API calls to Claude AI and Google Calendar
-- **popup.js**: Manages the UI, user interactions, and event editing
+- **js/main.js**: Application entry point that wires up all modules
+- **js/**: Modular JavaScript architecture (see [ARCHITECTURE.md](ARCHITECTURE.md))
 - **popup.html/css**: User interface for the extension popup
+
+### Architecture
+
+The extension uses a modular architecture with separation of concerns:
+
+- **State Management**: Centralized state using singleton pattern
+- **Services Layer**: Abstracts external APIs (Chrome, Claude AI, Google Calendar)
+- **UI Components**: Reusable components for rendering
+- **Event Handlers**: Orchestrates user interactions
+- **Utilities**: Pure functions for common tasks
+
+For detailed architecture documentation, see [ARCHITECTURE.md](ARCHITECTURE.md) and [js/README.md](js/README.md).
 
 ### API Integration
 
