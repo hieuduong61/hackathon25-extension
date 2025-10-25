@@ -132,6 +132,12 @@ Before adding an event to your calendar, you can edit:
 
 ## Troubleshooting
 
+### "Could not establish connection" or "Receiving end does not exist"
+- **Refresh the page** (F5 or Ctrl+R) - This is the most common fix
+- Make sure you're on a regular web page (http:// or https://)
+- The extension doesn't work on chrome://, edge://, about:, or file:// pages
+- See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for detailed solutions
+
 ### "Please configure your Anthropic API key"
 - Click the settings button (⚙️) and enter your API key
 - Make sure the API key starts with `sk-ant-`
@@ -155,6 +161,8 @@ Before adding an event to your calendar, you can edit:
 - The page might not contain clear event information
 - Try a different page with more structured event data
 - Check the browser console for errors (F12 > Console)
+
+For more detailed troubleshooting, see [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
 
 ## Privacy & Security
 
