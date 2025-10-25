@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event to Google Calendar</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Event Extractor</h1>
+      <button id="settingsBtn" class="icon-btn" title="Settings">⚙️</button>
+    </header>
+
+    <div id="loadingState" class="loading-state hidden">
+      <div class="spinner"></div>
+      <p>Analyzing page for events...</p>
+    </div>
+
+    <div id="errorState" class="error-state hidden">
+      <p class="error-message"></p>
+      <button id="retryBtn" class="btn btn-secondary">Retry</button>
+    </div>
+
+    <div id="noEventsState" class="no-events-state hidden">
+      <p>No events found on this page.</p>
+      <button id="tryAgainBtn" class="btn btn-secondary">Try Again</button>
+    </div>
+
+    <div id="eventsContainer" class="events-container hidden">
+      <div id="eventsList"></div>
+    </div>
+
+    <div id="configState" class="config-state hidden">
+      <h2>Settings</h2>
+      <div class="form-group">
+        <label for="anthropicApiKey">Anthropic API Key:</label>
+        <input type="password" id="anthropicApiKey" placeholder="sk-ant-...">
+        <a href="https://console.anthropic.com/" target="_blank" class="help-link">Get API Key</a>
+      </div>
+      <div class="button-group">
+        <button id="saveSettingsBtn" class="btn btn-primary">Save</button>
+        <button id="cancelSettingsBtn" class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+
+    <div id="mainActions" class="main-actions">
+      <button id="extractBtn" class="btn btn-primary">Extract Events</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
